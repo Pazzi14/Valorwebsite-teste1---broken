@@ -1,12 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
     // Loan simulator
     const loanSimulator = document.getElementById('loan-simulator');
     const loanAmount = document.getElementById('loan-amount');
@@ -19,11 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
     loanTerm.addEventListener('input', updateLoanTerm);
 
     function updateLoanAmount() {
-        loanAmountOutput.value = `R$ ${loanAmount.value}`;
+        loanAmountOutput.textContent = `R$ ${loanAmount.value}`;
     }
 
     function updateLoanTerm() {
-        loanTermOutput.value = `${loanTerm.value} meses`;
+        loanTermOutput.textContent = `${loanTerm.value} meses`;
     }
 
     loanSimulator.addEventListener('submit', function(e) {
@@ -44,15 +36,30 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     });
 
-    // Contact form submission (you'll need to implement the backend for this)
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Obrigado por entrar em contato! Retornaremos em breve.');
-        contactForm.reset();
-    });
-
     // Initialize loan simulator values
     updateLoanAmount();
     updateLoanTerm();
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Responsive navigation menu toggle
+    const menuToggle = document.createElement('button');
+    menuToggle.classList.add('menu-toggle');
+    menuToggle.innerHTML = '☰';
+    document.querySelector('nav').prepend(menuToggle);
+
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
 });
