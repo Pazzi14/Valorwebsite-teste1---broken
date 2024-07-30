@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #00008B; /* Azul escuro */
-    --secondary-color: #FFFFFF; /* Branco */
+    --primary-color: #b9ffff;
+    --secondary-color: #FFFFFF;
     --text-color: #333;
     --font-family: Arial, sans-serif;
 }
@@ -10,12 +10,22 @@ body {
     margin: 0;
     padding: 0;
     color: var(--text-color);
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
+    background-image: url('https://valorfinanciamentos.com.br/images/todo-o-brasil2.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+    background-color: rgba(185, 255, 255, 0.67); /* 33% transparency */
 }
 
-header {
+header, footer {
     background-color: var(--primary-color);
+    background-image: url('https://valorfinanciamentos.com.br/wp-content/uploads/2020/11/stock-market-graph-business-forex-trading-investment-financial-stock-chart-exchange-growth-crisis-money_73523-2631.jpg');
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-color: rgba(185, 255, 255, 0.85); /* 15% transparency */
     padding: 1rem;
+    color: var(--secondary-color);
 }
 
 .header-content {
@@ -62,7 +72,7 @@ main {
     text-align: center;
     padding: 4rem 0;
     background-color: var(--primary-color);
-    color: var(--secondary-color);
+    color: var(--text-color);
 }
 
 .cta-button {
@@ -75,8 +85,11 @@ main {
     margin-top: 1rem;
 }
 
-.loan-simulator, .social-feed {
+.loan-simulator, .contact-cta {
     margin-top: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
 }
 
 form {
@@ -91,14 +104,21 @@ input, textarea, button {
 
 button {
     background-color: var(--primary-color);
-    color: var(--secondary-color);
+    color: var(--text-color);
     border: none;
     cursor: pointer;
 }
 
+.contact-cta {
+    text-align: center;
+}
+
+.contact-cta img {
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
 footer {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
     padding: 2rem;
     text-align: center;
 }
@@ -129,7 +149,7 @@ footer {
     margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
+(max-width: 768px) {
     .header-content {
         flex-direction: column;
     }
