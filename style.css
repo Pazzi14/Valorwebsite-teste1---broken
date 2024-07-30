@@ -14,110 +14,113 @@ body {
 }
 
 header {
-    background-color: var(--primary-color);
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 1rem;
 }
 
 nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo img {
-    height: 50px;
+    justify-content: center;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
+    padding: 0;
 }
 
 .nav-links li {
-    margin-left: 1rem;
+    margin: 0 1rem;
 }
 
 .nav-links a {
     color: var(--secondary-color);
     text-decoration: none;
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger .line {
-    width: 25px;
-    height: 3px;
-    background-color: var(--secondary-color);
-    margin: 3px 0;
-}
-
-main {
-    padding: 2rem;
+    font-weight: bold;
 }
 
 .hero {
-    text-align: center;
-    padding: 4rem 0;
-    background-color: var(--primary-color);
+    background-image: url('path-to-your-background-image.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--secondary-color);
 }
 
-.cta-button {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 1rem;
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
 }
 
-.loan-simulator, .about-us, .correspondent-area, .contact {
+.hero-logo {
+    max-width: 200px;
+    margin-bottom: 2rem;
+}
+
+.loan-simulator {
     margin-top: 2rem;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+.slider-container {
+    margin-bottom: 1rem;
 }
 
-input, textarea, button {
-    margin: 0.5rem 0;
-    padding: 0.5rem;
+input[type="range"] {
+    width: 100%;
 }
 
 button {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     border: none;
+    padding: 0.5rem 1rem;
     cursor: pointer;
+    border-radius: 5px;
+}
+
+.social-posts {
+    padding: 2rem;
+    background-color: var(--secondary-color);
+}
+
+.social-feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.social-post {
+    width: 300px;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.social-post img {
+    max-width: 100%;
+    height: auto;
 }
 
 footer {
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.footer-menu ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-menu a {
-    color: var(--secondary-color);
-    text-decoration: none;
 }
 
 .social-media a {
@@ -126,30 +129,50 @@ footer {
     margin: 0 0.5rem;
 }
 
-.copyright {
-    margin-top: 1rem;
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
+    .hero-content {
+        padding: 1rem;
+    }
+}
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
+    .menu-toggle {
+        display: block;
     }
 
-    .hamburger {
-        display: flex;
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
     }
 
     .nav-links.active {
         display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background-color: var(--primary-color);
     }
 
-    .nav-links.active li {
+    .nav-links li {
         margin: 1rem 0;
     }
 }
