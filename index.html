@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valor Financiamentos - Soluções Financeiras Personalizadas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Valor Financiamentos Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#simulador">Simulador</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="login">Área do Cliente</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>Soluções Financeiras Personalizadas para Você</h1>
+            <p>Descubra as melhores opções de empréstimo adaptadas às suas necessidades.</p>
+            <button class="cta-button">Simule Agora</button>
+        </section>
+
+        <section id="produtos">
+            <h2>Nossos Produtos</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Empréstimo Pessoal</h3>
+                    <p>Taxas competitivas e aprovação rápida.</p>
+                </div>
+                <div class="product-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Empréstimo Consignado</h3>
+                    <p>Para servidores públicos e CLTs.</p>
+                </div>
+                <div class="product-card">
+                    <i class="fas fa-piggy-bank"></i>
+                    <h3>Antecipação FGTS</h3>
+                    <p>Antecipe seu saque aniversário.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="simulador">
+            <h2>Simule Seu Empréstimo</h2>
+            <div class="simulator-container">
+                <form id="loan-simulator">
+                    <label for="loan-amount">Valor do Empréstimo:</label>
+                    <input type="range" id="loan-amount" min="1000" max="100000" step="1000">
+                    <output for="loan-amount" id="loan-amount-output"></output>
+
+                    <label for="loan-term">Prazo (meses):</label>
+                    <input type="range" id="loan-term" min="6" max="60" step="6">
+                    <output for="loan-term" id="loan-term-output"></output>
+
+                    <button type="submit">Calcular</button>
+                </form>
+                <div id="simulation-result"></div>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre a Valor Financiamentos</h2>
+            <p>Somos uma empresa comprometida em oferecer as melhores soluções financeiras para nossos clientes, com transparência e excelência no atendimento.</p>
+        </section>
+
+        <section id="social-feeds">
+            <h2>Nos Acompanhe nas Redes Sociais</h2>
+            <div class="social-container">
+                <div class="instagram-feed">
+                    <h3>Instagram</h3>
+                    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+                    <div class="elfsight-app-[YOUR-APP-ID]"></div>
+                </div>
+                <div class="facebook-feed">
+                    <h3>Facebook</h3>
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v11.0&appId=[YOUR-APP-ID]"></script>
+                    <div class="fb-page" data-href="https://www.facebook.com/valorfinanciamentos" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/valorfinanciamentos" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/valorfinanciamentos">Valor Financiamentos</a>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato">
+            <h2>Entre em Contato</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Nome" required>
+                <input type="email" placeholder="E-mail" required>
+                <input type="tel" placeholder="Telefone" required>
+                <textarea placeholder="Mensagem" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre Nós</h4>
+                <p>A Valor Financiamentos é sua parceira para soluções financeiras personalizadas.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#simulador">Simulador</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>Email: contato@valorfinanciamentos.com.br</p>
+                <p>Telefone: (11) 1234-5678</p>
+            </div>
+            <div class="footer-section">
+                <h4>Siga-nos</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
