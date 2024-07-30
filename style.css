@@ -1,60 +1,31 @@
 :root {
-    --primary-color: #003366;
-    --secondary-color: #0066cc;
-    --accent-color: #ff6600;
-    --text-color: #333333;
-    --light-bg: #f5f5f5;
-    --white: #ffffff;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --primary-color: #00008B; /* Azul escuro */
+    --secondary-color: #FFFFFF; /* Branco */
+    --text-color: #333;
+    --font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
     color: var(--text-color);
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-}
-
-nav {
-    font-weight: 600;
-}
-
-p, li, input, textarea, button {
-    font-weight: 400;
-}
-
-.cta-button, .auth-buttons button {
-    font-weight: 600;
+    background-color: var(--secondary-color);
 }
 
 header {
     background-color: var(--primary-color);
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+    padding: 1rem;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
 }
 
 .logo img {
-    height: 40px;
+    height: 50px;
 }
 
 .nav-links {
@@ -63,21 +34,12 @@ nav {
 }
 
 .nav-links li {
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
 .nav-links a {
-    color: var(--white);
+    color: var(--secondary-color);
     text-decoration: none;
-}
-
-.auth-buttons button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: var(--accent-color);
-    color: var(--white);
 }
 
 .hamburger {
@@ -86,188 +48,90 @@ nav {
     cursor: pointer;
 }
 
-.hamburger span {
+.hamburger .line {
     width: 25px;
     height: 3px;
-    background-color: var(--white);
-    margin: 2px 0;
+    background-color: var(--secondary-color);
+    margin: 3px 0;
 }
 
 main {
-    margin-top: 80px;
+    padding: 2rem;
 }
 
-section {
-    padding: 4rem 2rem;
-}
-
-#hero {
-    background-color: var(--secondary-color);
-    color: var(--white);
+.hero {
     text-align: center;
-    padding: 8rem 2rem;
-}
-
-#hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-#hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    padding: 4rem 0;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .cta-button {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    background-color: var(--accent-color);
-    color: var(--white);
-    border: none;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: none;
     border-radius: 5px;
-    cursor: pointer;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.product-card {
-    background-color: var(--light-bg);
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-}
-
-.product-card i {
-    font-size: 3rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-}
-
-.simulator-container {
-    background-color: var(--light-bg);
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-#loan-simulator label {
-    display: block;
     margin-top: 1rem;
 }
 
-#loan-simulator input[type="range"] {
-    width: 100%;
-    margin-top: 0.5rem;
-}
-
-#loan-simulator button {
-    display: block;
-    width: 100%;
-    padding: 1rem;
+.loan-simulator, .about-us, .correspondent-area, .contact {
     margin-top: 2rem;
-    background-color: var(--accent-color);
-    color: var(--white);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-#social-feeds {
-    background-color: var(--light-bg);
-    padding: 4rem 2rem;
-}
-
-.social-container {
+form {
     display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
+    flex-direction: column;
 }
 
-.instagram-feed, .facebook-feed {
-    width: 48%;
-}
-
-#contact-form {
-    display: grid;
-    gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-#contact-form input,
-#contact-form textarea {
-    width: 100%;
+input, textarea, button {
+    margin: 0.5rem 0;
     padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
 }
 
-#contact-form button {
-    background-color: var(--accent-color);
-    color: var(--white);
+button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
     cursor: pointer;
 }
 
 footer {
     background-color: var(--primary-color);
-    color: var(--white);
-    padding: 4rem 2rem 2rem;
+    color: var(--secondary-color);
+    padding: 2rem;
+    text-align: center;
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.footer-section h4 {
-    margin-bottom: 1rem;
-}
-
-.footer-section ul {
+.footer-menu ul {
     list-style: none;
+    padding: 0;
 }
 
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-section a {
-    color: var(--white);
+.footer-menu a {
+    color: var(--secondary-color);
     text-decoration: none;
 }
 
-.social-icons a {
+.social-media a {
+    color: var(--secondary-color);
     font-size: 1.5rem;
-    margin-right: 1rem;
+    margin: 0 0.5rem;
 }
 
-.footer-bottom {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.copyright {
+    margin-top: 1rem;
 }
 
 @media (max-width: 768px) {
-    .nav-links, .auth-buttons {
+    .nav-links {
         display: none;
     }
 
@@ -275,16 +139,17 @@ footer {
         display: flex;
     }
 
-    .product-grid {
-        grid-template-columns: 1fr;
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
     }
 
-    .social-container {
-        flex-direction: column;
-    }
-    
-    .instagram-feed, .facebook-feed {
-        width: 100%;
-        margin-bottom: 2rem;
+    .nav-links.active li {
+        margin: 1rem 0;
     }
 }
