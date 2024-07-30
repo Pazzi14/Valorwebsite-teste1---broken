@@ -40,26 +40,28 @@ document.addEventListener('DOMContentLoaded', function() {
     updateLoanAmount();
     updateLoanTerm();
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Responsive navigation menu toggle
-    const menuToggle = document.createElement('button');
-    menuToggle.classList.add('menu-toggle');
-    menuToggle.innerHTML = '☰';
-    document.querySelector('nav').prepend(menuToggle);
-
-    const navLinks = document.querySelector('.nav-links');
-
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
+    // Fetch social media posts
+    fetchSocialMediaPosts();
 });
+
+function fetchSocialMediaPosts() {
+    // This is a mock function. In a real scenario, you would fetch data from social media APIs
+    const mockPosts = [
+        { platform: 'facebook', content: 'Confira nossas novas taxas de empréstimo!', date: '2023-07-01' },
+        { platform: 'instagram', content: 'Dicas para organizar suas finanças', date: '2023-07-02' },
+        { platform: 'linkedin', content: 'Valor Financiamentos expande operações para o Nordeste', date: '2023-07-03' }
+    ];
+
+    const socialPostsContainer = document.getElementById('social-posts');
+    
+    mockPosts.forEach(post => {
+        const postElement = document.createElement('div');
+        postElement.classList.add('social-post');
+        postElement.innerHTML = `
+            <h3>${post.platform}</h3>
+            <p>${post.content}</p>
+            <small>${post.date}</small>
+        `;
+        socialPostsContainer.appendChild(postElement);
+    });
+}
