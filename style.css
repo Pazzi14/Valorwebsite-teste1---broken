@@ -217,7 +217,7 @@ footer {
     align-self: flex-start;
 }
 
-@media (max-width: 768px) {
+(max-width: 768px) {
     .menu-toggle {
         display: block;
     }
