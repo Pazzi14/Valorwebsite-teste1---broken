@@ -26,25 +26,24 @@ body {
 }
 
 header {
-    background-color: var(--primary-color);
-    background-image: linear-gradient(rgba(0, 163, 224, 0.85), rgba(0, 163, 224, 0.85)), url('https://valorfinanciamentos.com.br/wp-content/uploads/2020/11/stock-market-graph-business-forex-trading-investment-financial-stock-chart-exchange-growth-crisis-money_73523-2631.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 2rem 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo img {
-    height: 80px;
+    height: 60px;
     display: block;
-    margin: 0 auto;
-    filter: brightness(0) invert(1); /* Torna o logo branco */
 }
 
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
+    padding: 1rem 0;
 }
 
 .nav-links {
@@ -53,11 +52,11 @@ nav {
 }
 
 .nav-links li {
-    margin: 0 15px;
+    margin-left: 20px;
 }
 
 .nav-links a {
-    color: #fff;
+    color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
 }
@@ -66,20 +65,73 @@ nav {
     display: none;
     background: none;
     border: none;
-    color: #fff;
+    color: var(--text-color);
     font-size: 1.5rem;
     cursor: pointer;
 }
 
-.about-section, .products-section {
+.hero {
+    background-image: url('https://valorfinanciamentos.com.br/wp-content/uploads/2020/11/stock-market-graph-business-forex-trading-investment-financial-stock-chart-exchange-growth-crisis-money_73523-2631.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.about-section, .products-section, .loan-simulator, .news-section, .gerentes-section {
     padding: 4rem 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.product-item {
     background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.product-item i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
 .loan-simulator {
     background-color: #fff;
-    padding: 4rem 0;
-    text-align: center;
 }
 
 .slider-container {
@@ -92,23 +144,7 @@ input[type="range"] {
 }
 
 .news-section {
-    padding: 4rem 0;
     background-color: var(--background-color);
-    position: relative;
-}
-
-.news-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('https://capitalresearch.com.br/wp-content/uploads/2020/04/noticias-do-mercado-financeiro-capital-research.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.2;
-    z-index: -1;
 }
 
 .news-grid {
@@ -137,12 +173,11 @@ input[type="range"] {
 }
 
 .gerentes-section {
-    padding: 4rem 0;
-    background-color: #f9f9f9;
+    background-color: #fff;
 }
 
 .gerente-card {
-    background-color: #fff;
+    background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding: 2rem;
@@ -159,7 +194,7 @@ input[type="range"] {
 .contact-cta {
     text-align: center;
     padding: 4rem 0;
-    background-color: #ffffff;
+    background-color: var(--primary-color);
 }
 
 .contact-button {
@@ -171,6 +206,8 @@ input[type="range"] {
     border-radius: 50px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: inline-block;
 }
 
 .contact-button:hover {
@@ -183,23 +220,8 @@ input[type="range"] {
     margin-right: 10px;
 }
 
-.cta-button {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #002280;
-}
-
 footer {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: #fff;
     padding: 2rem 0;
 }
@@ -233,13 +255,15 @@ footer {
 .copyright {
     text-align: center;
     margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
 }
 
 .scroll-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: #fff;
     width: 40px;
     height: 40px;
@@ -263,7 +287,7 @@ footer {
     right: 0;
     background-color: rgba(51, 51, 51, 0.95);
     color: #fff;
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: center;
     display: none;
     z-index: 1000;
@@ -271,21 +295,20 @@ footer {
 }
 
 .cookie-consent h3 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
 .cookie-consent p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    margin-bottom: 1rem;
 }
 
 .cookie-consent button {
     background-color: var(--primary-color);
     color: #fff;
     border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 5px;
@@ -307,8 +330,9 @@ footer {
         top: 60px;
         left: 0;
         right: 0;
-        background-color: var(--primary-color);
+        background-color: #fff;
         padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .nav-links.active {
@@ -319,6 +343,14 @@ footer {
         margin: 0.5rem 0;
     }
 
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
     .footer-content {
         flex-direction: column;
     }
@@ -326,22 +358,5 @@ footer {
     .footer-menu, .footer-contact, .footer-social, .footer-map {
         width: 100%;
         margin-bottom: 2rem;
-    }
-
-    .cookie-consent {
-        padding: 1.5rem;
-    }
-
-    .cookie-consent h3 {
-        font-size: 1.5rem;
-    }
-
-    .cookie-consent p {
-        font-size: 1rem;
-    }
-
-    .cookie-consent button {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
     }
 }
