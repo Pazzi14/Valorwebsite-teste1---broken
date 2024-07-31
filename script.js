@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Simulador de empréstimo
-    const loanSimulator = document.getElementById('loan-simulator');
     const loanAmount = document.getElementById('loan-amount');
     const loanTerm = document.getElementById('loan-term');
     const loanAmountOutput = document.getElementById('loan-amount-output');
@@ -49,11 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>Total a Pagar: ${formatCurrency(totalPayment)}</p>
         `;
     }
-
-    loanSimulator.addEventListener('submit', function(e) {
-        e.preventDefault();
-        calculateLoan();
-    });
 
     // Inicializa o simulador
     updateSimulator();
