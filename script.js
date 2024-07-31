@@ -69,8 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Adiciona classe 'active' ao item de menu atual
-    function setActiveMenuItem() {
+    // function setActiveMenuItem() {
         const sections = document.querySelectorAll('section');
         const navItems = document.querySelectorAll('.nav-links a');
 
@@ -87,8 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navItems.forEach(item => {
                 item.classList.remove('active');
                 if (item.getAttribute('href').slice(1) === current) {
-                    item.
-                                        item.classList.add('active');
+                    item.classList.add('active');
                 }
             });
         });
