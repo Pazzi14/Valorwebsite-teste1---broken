@@ -37,6 +37,7 @@ header {
     height: 80px;
     display: block;
     margin: 0 auto;
+    filter: brightness(0) invert(1); /* Torna o logo branco */
 }
 
 nav {
@@ -88,6 +89,21 @@ input[type="range"] {
 .news-section {
     padding: 4rem 0;
     background-color: var(--background-color);
+    position: relative;
+}
+
+.news-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://capitalresearch.com.br/wp-content/uploads/2020/04/noticias-do-mercado-financeiro-capital-research.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -1;
 }
 
 .news-grid {
@@ -169,8 +185,10 @@ footer {
     flex-wrap: wrap;
 }
 
-.footer-menu, .footer-contact, .footer-social {
+.footer-menu, .footer-contact, .footer-social, .footer-map {
+    flex: 1;
     margin-bottom: 1rem;
+    min-width: 200px;
 }
 
 .footer-menu ul {
@@ -190,6 +208,48 @@ footer {
 .copyright {
     text-align: center;
     margin-top: 2rem;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+}
+
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    display: none;
+}
+
+.cookie-consent button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
 }
 
 (max-width: 768px) {
@@ -214,5 +274,14 @@ footer {
 
     .nav-links li {
         margin: 0.5rem 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-menu, .footer-contact, .footer-social, .footer-map {
+        width: 100%;
+        margin-bottom: 2rem;
     }
 }
