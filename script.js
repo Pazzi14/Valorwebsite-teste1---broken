@@ -69,53 +69,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // function setActiveMenuItem() {
-        const sections = document.querySelectorAll('section');
-        const navItems = document.querySelectorAll('.nav-links a');
+    // Botão de voltar ao topo
+    const scrollToTopButton = document.querySelector('.scroll-to-top');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                    current = section.getAttribute('id');
-                }
-            });
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+            scrollToTopButton.classList.add('show');
+        } else {
+            scrollToTopButton.classList.remove('show');
+        }
+    });
 
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href').slice(1) === current) {
-                    item.classList.add('active');
-                }
-            });
-        });
+    scrollToTopButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Pop-up de consentimento de cookies
+    const cookieConsent = document.getElementById('cookie-consent');
+    const acceptCookiesButton = document.getElementById('accept-cookies');
+
+    if (!localStorage.getItem('cookiesAccepted')) {
+        cookieConsent.style.display = 'block';
     }
 
-    setActiveMenuItem();
-
-    // Animação de fade-in para elementos ao rolar a página
-    function fadeInElements() {
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOptions = {
-            threshold: 0.5
-        };
-
-        const fadeInObserver = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                }
-                entry.target.classList.add('fade-in-visible');
-                observer.unobserve(entry.target);
-            });
-        }, fadeInOptions);
-
-        fadeElements.forEach(element => {
-            fadeInObserver.observe(element);
-        });
-    }
-
-    fadeInElements();
+    acceptCookiesButton.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieConsent.style.display = 'none';
+    });
 });
