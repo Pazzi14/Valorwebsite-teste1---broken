@@ -87,7 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
             navItems.forEach(item => {
                 item.classList.remove('active');
                 if (item.getAttribute('href').slice(1) === current) {
-                    item.classList.add('active');
+                    item.
+                                        item.classList.add('active');
                 }
             });
         });
@@ -95,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setActiveMenuItem();
 
-    // Animação de fade-in para elementos ao rolar a página
     // Animação de fade-in para elementos ao rolar a página
     function fadeInElements() {
         const fadeElements = document.querySelectorAll('.fade-in');
@@ -120,52 +120,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     fadeInElements();
-
-    // Chatbot
-    const chatbotContainer = document.getElementById('chatbot-container');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-    const chatbotForm = document.getElementById('chatbot-form');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const chatbotToggle = document.getElementById('chatbot-toggle');
-
-    chatbotToggle.addEventListener('click', function() {
-        chatbotContainer.classList.toggle('open');
-    });
-
-    chatbotForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const message = chatbotInput.value.trim();
-        if (message) {
-            addMessage('user', message);
-            chatbotInput.value = '';
-            // Simula uma resposta do bot após 1 segundo
-            setTimeout(() => {
-                const botResponse = getBotResponse(message);
-                addMessage('bot', botResponse);
-            }, 1000);
-        }
-    });
-
-    function addMessage(sender, message) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message', `${sender}-message`);
-        messageElement.textContent = message;
-        chatbotMessages.appendChild(messageElement);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    }
-
-    function getBotResponse(message) {
-        message = message.toLowerCase();
-        if (message.includes('olá') || message.includes('oi')) {
-            return 'Olá! Como posso ajudar você hoje?';
-        } else if (message.includes('empréstimo')) {
-            return 'Temos várias opções de empréstimo disponíveis. Você gostaria de fazer uma simulação?';
-        } else if (message.includes('taxas')) {
-            return 'Nossas taxas são competitivas e variam de acordo com o tipo de empréstimo. Posso te dar mais detalhes sobre um produto específico?';
-        } else if (message.includes('contato')) {
-            return 'Você pode entrar em contato conosco pelo telefone (11) 3717-6415 ou pelo WhatsApp. Posso te passar o link?';
-        } else {
-            return 'Desculpe, não entendi sua pergunta. Pode reformular ou escolher entre os tópicos: empréstimo, taxas, contato?';
-        }
-    }
 });
