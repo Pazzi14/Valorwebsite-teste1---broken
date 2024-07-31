@@ -34,7 +34,7 @@ header {
 }
 
 .logo img {
-    height: 60px;
+    height: 80px;
     display: block;
     margin: 0 auto;
 }
@@ -118,12 +118,28 @@ input[type="range"] {
 .contact-cta {
     text-align: center;
     padding: 4rem 0;
-    background-color: var(--primary-color);
+    background-color: #ffffff;
 }
 
 .contact-button {
-    font-size: 1.2rem;
-    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    padding: 1.2rem 2.5rem;
+    background-color: #25D366;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-button:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.contact-button i {
+    margin-right: 10px;
 }
 
 .cta-button {
