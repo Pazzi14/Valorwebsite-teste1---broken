@@ -26,12 +26,14 @@ body {
 }
 
 header {
-    background-color: var(--primary-color);
-    padding: 1rem 0;
+    background-image: url('path/to/your/background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 2rem 0;
 }
 
 .logo img {
-    height: 40px;
+    height: 60px;
 }
 
 nav {
@@ -64,16 +66,60 @@ nav {
     cursor: pointer;
 }
 
-.hero {
-    background-color: var(--primary-color);
-    color: #fff;
-    text-align: center;
+.loan-simulator {
+    background-color: #fff;
     padding: 4rem 0;
+    text-align: center;
 }
 
-.hero h1 {
-    font-size: 2.5rem;
+.slider-container {
+    margin-bottom: 1.5rem;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.news-section {
+    padding: 4rem 0;
+    background-color: var(--background-color);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.news-item {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.news-item h3 {
     margin-bottom: 1rem;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-cta {
+    text-align: center;
+    padding: 4rem 0;
+    background-color: var(--primary-color);
+}
+
+.contact-button {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
 }
 
 .cta-button {
@@ -89,21 +135,6 @@ nav {
 
 .cta-button:hover {
     background-color: #002280;
-}
-
-.loan-simulator {
-    background-color: #fff;
-    padding: 4rem 0;
-    text-align: center;
-}
-
-.slider-container {
-    margin-bottom: 1.5rem;
-}
-
-input[type="range"] {
-    width: 100%;
-    margin-top: 0.5rem;
 }
 
 footer {
@@ -141,17 +172,6 @@ footer {
     margin-top: 2rem;
 }
 
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.fade-in-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .chatbot-container {
     position: fixed;
     bottom: 20px;
@@ -165,6 +185,7 @@ footer {
     flex-direction: column;
     transition: all 0.3s ease;
     transform: translateY(370px);
+    z-index: 1000;
 }
 
 .chatbot-container.open {
@@ -189,15 +210,17 @@ footer {
 
 .chatbot-toggle {
     position: absolute;
-    top: -40px;
+    top: -50px;
     right: 0;
     background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 30px;
     cursor: pointer;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 .message {
