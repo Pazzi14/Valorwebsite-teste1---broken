@@ -1,126 +1,321 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Simulador de Empréstimo
-    const loanForm = document.getElementById('loan-form');
-    const loanResult = document.getElementById('loan-result');
+:root {
+    --primary-color: #00a859;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --font-family: 'Roboto', sans-serif;
+}
 
-    if (loanForm) {
-        loanForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const amount = parseFloat(document.getElementById('loan-amount').value);
-            const term = parseInt(document.getElementById('loan-term').value);
-            const type = document.getElementById('loan-type').value;
-            
-            let interestRate;
-            switch(type) {
-                case 'personal': interestRate = 0.02; break;
-                case 'consignado': interestRate = 0.015; break;
-                case 'fgts': interestRate = 0.0199; break;
-                default: interestRate = 0.02;
-            }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-            const monthlyPayment = (amount * interestRate * Math.pow((1 + interestRate), term)) / (Math.pow((1 + interestRate), term) - 1);
-            const totalPayment = monthlyPayment * term;
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--dark-color);
+}
 
-            loanResult.innerHTML = `
-                <h3>Resultado da Simulação</h3>
-                <p>Valor do Empréstimo: R$ ${amount.toFixed(2)}</p>
-                <p>Prazo: ${term} meses</p>
-                <p>Pagamento Mensal: R$ ${monthlyPayment.toFixed(2)}</p>
-                <p>Total a Pagar: R$ ${totalPayment.toFixed(2)}</p>
-            `;
-        });
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+header {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: var(--dark-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero-section {
+    background-image: url('https://valorfinanciamentos.com.br/wp-content/uploads/2023/09/banner-home-valor-financiamentos.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #008c4a;
+}
+
+.services-section,
+.about-section,
+.testimonials-section,
+.faq-section,
+.contact-section {
+    padding: 4rem 0;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-item {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.service-item i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.testimonial-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.testimonial-item {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    background-color: var(--light-color);
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.faq-answer {
+    padding: 1rem;
+    display: none;
+}
+
+#contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#chatbot-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatbot-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+#chatbot-input-container {
+    display: flex;
+    padding: 10px;
+}
+
+#chatbot-input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#send-message {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.open-chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.loan-simulator-section {
+    background-color: #f9f9f9;
+    padding: 4rem 0;
+}
+
+#loan-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#loan-result {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--light-color);
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
     }
 
-    // FAQ Accordion
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const answer = question.nextElementSibling;
-            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-        });
-    });
-
-    // Formulário de Contato
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            contactForm.reset();
-        });
+    nav ul {
+        margin-top: 1rem;
     }
 
-    // Chatbot
-    const openChatbotBtn = document.getElementById('open-chatbot');
-    const closeChatbotBtn = document.getElementById('close-chatbot');
-    const chatbotContainer = document.getElementById('chatbot-container');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const sendMessageBtn = document.getElementById('send-message');
-
-    function addMessage(message, isUser = false) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message');
-        messageElement.classList.add(isUser ? 'user-message' : 'bot-message');
-        messageElement.textContent = message;
-        chatbotMessages.appendChild(messageElement);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    .hero-section h1 {
+        font-size: 2rem;
     }
 
-    function getBotResponse(message) {
-        // Simples respostas pré-definidas
-        if (message.toLowerCase().includes('empréstimo')) {
-            return "Para solicitar um empréstimo, por favor, use nosso simulador de empréstimo ou entre em contato conosco através do formulário de contato.";
-        } else if (message.toLowerCase().includes('taxas')) {
-            return "Nossas taxas variam de acordo com o tipo de empréstimo e sua situação financeira. Por favor, use nosso simulador para obter uma estimativa personalizada.";
-        } else {
-            return "Desculpe, não entendi sua pergunta. Pode reformular ou entrar em contato com nossa equipe para um atendimento personalizado?";
-        }
+    .service-grid,
+    .footer-content {
+        grid-template-columns: 1fr;
     }
 
-    if (openChatbotBtn) {
-        openChatbotBtn.addEventListener('click', () => {
-            chatbotContainer.style.display = 'flex';
-            openChatbotBtn.style.display = 'none';
-        });
+    .chatbot-container {
+        width: 100%;
+        height: 50vh;
+        bottom: 0;
+        right: 0;
     }
-
-    if (closeChatbotBtn) {
-        closeChatbotBtn.addEventListener('click', () => {
-            chatbotContainer.style.display = 'none';
-            openChatbotBtn.style.display = 'block';
-        });
-    }
-
-    if (sendMessageBtn) {
-        sendMessageBtn.addEventListener('click', () => {
-            const message = chatbotInput.value.trim();
-            if (message) {
-                addMessage(message, true);
-                chatbotInput.value = '';
-                setTimeout(() => {
-                    const botResponse = getBotResponse(message);
-                    addMessage(botResponse);
-                }, 500);
-            }
-        });
-    }
-
-    if (chatbotInput) {
-        chatbotInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessageBtn.click();
-            }
-        });
-    }
-
-    // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-});
+}
