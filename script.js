@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-
+    // Simulador de Empréstimo
     const loanForm = document.getElementById('loan-form');
     const loanResult = document.getElementById('loan-result');
+    const loanAmountSlider = document.getElementById('loan-amount');
+    const loanAmountOutput = document.getElementById('loan-amount-output');
 
     if (loanForm) {
         loanForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const amount = parseFloat(document.getElementById('loan-amount').value);
+            const amount = parseFloat(loanAmountSlider.value);
             const term = parseInt(document.getElementById('loan-term').value);
             const type = document.getElementById('loan-type').value;
             
@@ -31,7 +33,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    if (loanAmountSlider && loanAmountOutput) {
+        loanAmountSlider.addEventListener('input', function() {
+            loanAmountOutput.value = `R$ ${this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ".")}`;
+        });
+    }
 
+    // FAQ Accordion
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
@@ -50,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-
+    // Chatbot
     const openChatbotBtn = document.getElementById('open-chatbot');
     const closeChatbotBtn = document.getElementById('close-chatbot');
     const chatbotContainer = document.getElementById('chatbot-container');
@@ -123,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-
+    // Slider de Depoimentos
     const testimonialSlider = document.querySelector('.testimonial-slider');
     if (testimonialSlider) {
         let isDown = false;
@@ -152,4 +160,52 @@ document.addEventListener('DOMContentLoaded', function() {
             testimonialSlider.scrollLeft = scrollLeft - walk;
         });
     }
+
+    // Menu Mobile
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    }
+
+    // Inicialização do Mapa (se estiver sendo usado)
+    function initMap() {
+        const location = { lat: -23.550520, lng: -46.633309 }; // Coordenadas de São Paulo
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: location,
+        });
+        const marker = new google.maps.Marker({
+            position: location,
+            map: map,
+        });
+    }
+
+    // Se o elemento do mapa existir, inicialize-o
+    if (document.getElementById('map')) {
+        initMap();
+    }
+
+    // Animação de Scroll
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            } else {
+                reveals[i].classList.remove("active");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
+
+    // Para ativar a animação na carga inicial
+    reveal();
 });
