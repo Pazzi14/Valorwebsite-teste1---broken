@@ -6,13 +6,13 @@
     <title>Valor Financiamentos - Soluções Financeiras Personalizadas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css' rel='stylesheet' />
-    <link rel="stylesheet" href="path/to/your/custom/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <img src="path/to/logo.png" alt="Valor Financiamentos Logo">
+                <img src="logo.png" alt="Valor Financiamentos Logo">
             </div>
             <ul>
                 <li><a href="#home">Início</a></li>
@@ -92,7 +92,18 @@
             <div class="container">
                 <h2>O Que Nossos Clientes Dizem</h2>
                 <div class="testimonial-slider">
-                    <!-- Testimonials will be added here dynamically -->
+                    <div class="testimonial-item">
+                        <p>"A Valor Financiamentos me ajudou a realizar o sonho da casa própria. Excelente atendimento!"</p>
+                        <h4>Maria Silva</h4>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Consegui um empréstimo com ótimas taxas para expandir meu negócio. Recomendo!"</p>
+                        <h4>João Santos</h4>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Processo rápido e descomplicado. Equipe muito profissional!"</p>
+                        <h4>Ana Oliveira</h4>
+                    </div>
                 </div>
             </div>
         </section>
@@ -101,7 +112,24 @@
             <div class="container">
                 <h2>Perguntas Frequentes</h2>
                 <div class="faq-accordion">
-                    <!-- FAQ items will be added here dynamically -->
+                    <div class="faq-item">
+                        <h3 class="faq-question">Quais documentos são necessários para solicitar um empréstimo?</h3>
+                        <div class="faq-answer">
+                            <p>Geralmente, são necessários RG, CPF, comprovante de residência e comprovante de renda. Requisitos específicos podem variar de acordo com o tipo de empréstimo.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Qual é o prazo máximo para pagamento?</h3>
+                        <div class="faq-answer">
+                            <p>O prazo máximo varia de acordo com o tipo de empréstimo, podendo chegar a até 72 meses em alguns casos.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Posso fazer uma simulação sem compromisso?</h3>
+                        <div class="faq-answer">
+                            <p>Sim, você pode usar nosso simulador online sem nenhum compromisso para ter uma ideia das condições do empréstimo.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -128,317 +156,6 @@
                     </div>
                     <button type="submit" class="cta-button">Enviar</button>
                 </form>
-            </div>
-        </section>
-
-        <section id="financial-education" class="financial-education-section">
-            <div class="container">
-                <h2>Educação Financeira</h2>
-                <div class="education-grid">
-                    <div class="education-item">
-                        <h3>Como fazer um orçamento</h3>
-                        <p>Aprenda a controlar suas finanças com um orçamento eficiente.</p>
-                        <a href="#" class="read-more">Leia mais</a>
-                    </div>
-                    <div class="education-item">
-                        <h3>Investimentos para iniciantes</h3>
-                        <p>Descubra as melhores opções de investimento para quem está começando.</p>
-                        <a href="#" class="read-more">Leia mais</a>
-                    </div>
-                    <div class="education-item">
-                        <h3>Como sair das dívidas</h3>
-                        <p>Estratégias eficazes para se livrar das dívidas e recuperar sua saúde financeira.</p>
-                        <a href="#" class="read-more">Leia mais</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="debt-capacity" class="debt-capacity-section">
-            <div class="container">
-                <h2>Calculadora de Capacidade de Endividamento</h2>
-                <form id="debt-capacity-form">
-                    <div class="input-group">
-                        <label for="monthly-income">Renda Mensal:</label>
-                        <input type="number" id="monthly-income" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="monthly-expenses">Despesas Mensais:</label>
-                        <input type="number" id="monthly-expenses" required>
-                    </div>
-                    <button type="submit" class="cta-button">Calcular</button>
-                </form>
-                <div id="debt-capacity-result"></div>
-            </div>
-        </section>
-
-        <section id="financial-goals" class="financial-goals-section">
-            <div class="container">
-                <h2>Calculadora de Objetivos Financeiros</h2>
-                <div class="goal-calculator">
-                    <div class="input-group">
-                        <label for="goal-amount">Valor do Objetivo:</label>
-                        <input type="number" id="goal-amount" placeholder="R$ 0,00">
-                    </div>
-                    <div class="input-group">
-                        <label for="goal-time">Tempo para Atingir (meses):</label>
-                        <input type="number" id="goal-time" placeholder="12">
-                    </div>
-                    <div class="input-group">
-                        <label for="monthly-saving">Quanto pode economizar por mês:</label>
-                        <input type="number" id="monthly-saving" placeholder="R$ 0,00">
-                    </div>
-                    <button id="calculate-goal" class="cta-button">Calcular</button>
-                    <div id="goal-result"></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="rate-comparison" class="rate-comparison-section">
-            <div class="container">
-                <h2>Compare Nossas Taxas</h2>
-                <table class="rate-table">
-                    <thead>
-                        <tr>
-                            <th>Tipo de Empréstimo</th>
-                            <th>Valor Financiamentos</th>
-                            <th>Média do Mercado</th>
-                            <th>Economia</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Empréstimo Pessoal</td>
-                            <td>3.5% a.m.</td>
-                            <td>5.0% a.m.</td>
-                            <td class="savings">1.5% a.m.</td>
-                        </tr>
-                        <tr>
-                            <td>Empréstimo Consignado</td>
-                            <td>1.8% a.m.</td>
-                            <td>2.3% a.m.</td>
-                            <td class="savings">0.5% a.m.</td>
-                        </tr>
-                        <tr>
-                            <td>Empréstimo FGTS</td>
-                            <td>1.99% a.m.</td>
-                            <td>2.5% a.m.</td>
-                            <td class="savings">0.51% a.m.</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="disclaimer">* Taxas sujeitas a alterações. Consulte as condições atuais.</p>
-            </div>
-        </section>
-
-        <section id="refinancing-simulator" class="refinancing-simulator-section">
-            <div class="container">
-                <h2>Simulador de Refinanciamento</h2>
-                <p>Veja como podemos ajudar você a reduzir suas parcelas mensais</p>
-                <div class="simulator-form">
-                    <div class="input-group">
-                        <label for="current-debt">Valor total da dívida atual:</label>
-                        <input type="number" id="current-debt" placeholder="R$ 0,00">
-                    </div>
-                    <div class="input-group">
-                        <label for="current-interest">Taxa de juros atual (% a.m.):</label>
-                        <input type="number" id="current-interest" placeholder="0.00">
-                    </div>
-                    <div class="input-group">
-                        <label for="current-term">Prazo restante (meses):</label>
-                        <input type="number" id="current-term" placeholder="0">
-                    </div>
-                    <button id="calculate-refinancing" class="cta-button">Simular Refinanciamento</button>
-                </div>
-                <div id="refinancing-result"></div>
-            </div>
-        </section>
-
-        <section id="financial-calendar" class="financial-calendar-section">
-            <div class="container">
-                <h2>Calendário Financeiro</h2>
-                <div id="calendar"></div>
-            </div>
-        </section>
-
-        <section id="financial-game" class="financial-game-section">
-            <div class="container">
-                <h2>Desafio Financeiro</h2>
-                <div id="game-progress">
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 0%;"></div>
-                    </div>
-                    <p>Nível: <span id="user-level">1</span></p>
-                    <p>Pontos: <span id="user-points">0</span></p>
-                </div>
-                <div id="game-challenges">
-                    <h3>Desafios Diários</h3>
-                    <ul>
-                        <li>
-                            <input type="checkbox" id="challenge1">
-                            <label for="challenge1">Economize R$ 10 hoje</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="challenge2">
-                            <label for="challenge2">Registre todas as suas despesas do dia</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="challenge3">
-                            <label for="challenge3">Leia um artigo sobre educação financeira</label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="credit-analysis" class="credit-analysis-section">
-            <div class="container">
-                <h2>Análise de Crédito Preliminar</h2>
-                <form id="credit-analysis-form">
-                    <div class="input-group">
-                        <label for="monthly-income">Renda Mensal:</label>
-                        <input type="number" id="monthly-income" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="credit-score">Score de Crédito:</label>
-                        <input type="number" id="credit-score" min="0" max="1000" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="existing-debts">Dívidas Existentes:</label>
-                        <input type="number" id="existing-debts" required>
-                    </div>
-                    <button type="submit" class="cta-button">Analisar Crédito</button>
-                </form>
-                <div id="credit-analysis-result"></div>
-            </div>
-        </section>
-
-                <section id="referral-program" class="referral-program-section">
-            <div class="container">
-                <h2>Programa de Indicação</h2>
-                <p>Indique seus amigos e ganhe recompensas!</p>
-                <div class="referral-steps">
-                    <div class="step">
-                        <i class="fas fa-user-plus"></i>
-                        <h3>Indique um Amigo</h3>
-                        <p>Compartilhe seu código único com amigos e familiares.</p>
-                    </div>
-                    <div class="step">
-                        <i class="fas fa-handshake"></i>
-                        <h3>Seu Amigo Contrata</h3>
-                        <p>Quando seu amigo contratar um empréstimo, ambos ganham.</p>
-                    </div>
-                    <div class="step">
-                        <i class="fas fa-gift"></i>
-                        <h3>Receba sua Recompensa</h3>
-                        <p>Ganhe um bônus em dinheiro ou desconto em seu próximo empréstimo.</p>
-                    </div>
-                </div>
-                <button id="get-referral-code" class="cta-button">Obter Meu Código de Indicação</button>
-            </div>
-        </section>
-
-        <section id="investor-profile" class="investor-profile-section">
-            <div class="container">
-                <h2>Descubra seu Perfil de Investidor</h2>
-                <div id="investor-quiz">
-                    <!-- As perguntas serão inseridas aqui via JavaScript -->
-                </div>
-                <button id="submit-investor-quiz" class="cta-button">Ver Meu Perfil</button>
-                <div id="investor-result"></div>
-            </div>
-        </section>
-
-        <section id="security" class="security-section">
-            <div class="container">
-                <h2>Segurança e Privacidade</h2>
-                <div class="security-features">
-                    <div class="feature">
-                        <i class="fas fa-lock"></i>
-                        <h3>Criptografia de Dados</h3>
-                        <p>Todos os dados são criptografados usando tecnologia de ponta.</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Proteção contra Fraudes</h3>
-                        <p>Sistemas avançados de detecção e prevenção de fraudes.</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-user-secret"></i>
-                        <h3>Privacidade do Cliente</h3>
-                        <p>Sua privacidade é nossa prioridade. Saiba mais sobre nossa política de privacidade.</p>
-                    </div>
-                </div>
-                <a href="#" class="cta-button">Ver Política de Privacidade</a>
-            </div>
-        </section>
-
-        <section id="partners-certifications" class="partners-certifications-section">
-            <div class="container">
-                <h2>Parceiros e Certificações</h2>
-                <div class="partners-grid">
-                    <!-- Adicione logos dos parceiros aqui -->
-                </div>
-                <div class="certifications">
-                    <img src="path/to/certification1.png" alt="Certificação 1">
-                    <img src="path/to/certification2.png" alt="Certificação 2">
-                    <img src="path/to/certification3.png" alt="Certificação 3">
-                </div>
-            </div>
-        </section>
-
-        <section id="resources" class="resources-section">
-            <div class="container">
-                <h2>Recursos e Ferramentas</h2>
-                <div class="resource-grid">
-                    <div class="resource-item">
-                        <i class="fas fa-calculator"></i>
-                        <h3>Calculadora de Juros</h3>
-                        <p>Calcule os juros de diferentes tipos de empréstimos.</p>
-                        <a href="#" class="resource-link">Acessar</a>
-                    </div>
-                    <div class="resource-item">
-                        <i class="fas fa-file-alt"></i>
-                        <h3>Guia de Crédito</h3>
-                        <p>Aprenda como melhorar seu score de crédito.</p>
-                        <a href="#" class="resource-link">Baixar PDF</a>
-                    </div>
-                    <div class="resource-item">
-                        <i class="fas fa-piggy-bank"></i>
-                        <h3>Planejador de Orçamento</h3>
-                        <p>Ferramenta para ajudar no planejamento financeiro mensal.</p>
-                        <a href="#" class="resource-link">Usar Ferramenta</a>
-                    </div>
-                    <div class="resource-item">
-                        <i class="fas fa-book"></i>
-                        <h3>Glossário Financeiro</h3>
-                        <p>Entenda os termos financeiros mais comuns.</p>
-                        <a href="#" class="resource-link">Consultar</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="social-responsibility" class="social-responsibility-section">
-            <div class="container">
-                <h2>Nossa Responsabilidade Social</h2>
-                <div class="initiative-grid">
-                    <div class="initiative-item">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <h3>Programa de Educação Financeira</h3>
-                        <p>Oferecemos workshops gratuitos de educação financeira para comunidades carentes.</p>
-                    </div>
-                    <div class="initiative-item">
-                        <i class="fas fa-tree"></i>
-                        <h3>Sustentabilidade</h3>
-                        <p>Nosso compromisso com o meio ambiente inclui a redução do uso de papel e energia renovável em nossos escritórios.</p>
-                    </div>
-                    <div class="initiative-item">
-                        <i class="fas fa-users"></i>
-                        <h3>Apoio a ONGs</h3>
-                        <p>Parte de nossos lucros é destinada a ONGs que trabalham com inclusão financeira.</p>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
@@ -484,6 +201,6 @@
     <button id="open-chatbot" class="open-chatbot-btn">Chat</button>
 
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
-    <script src="path/to/your/custom/scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
