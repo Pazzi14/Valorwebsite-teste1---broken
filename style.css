@@ -1,42 +1,74 @@
+/* Estilos Gerais */
 :root {
-    --primary-color: #00A3E0;
-    --secondary-color: #0032A0;
-    --text-color: #333;
-    --background-color: #f5f5f5;
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
     --font-family: 'Arial', sans-serif;
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: var(--font-family);
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
+    color: var(--dark-color);
+    background-color: var(--light-color);
 }
 
 .container {
+    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: darken(var(--primary-color), 10%);
+    text-decoration: none;
+}
+
+/* Header e Navegação */
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
-    width: 100%;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-}
-
-.logo img {
-    height: 60px;
-    display: block;
 }
 
 nav {
@@ -46,317 +78,490 @@ nav {
     padding: 1rem 0;
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
+.logo img {
+    height: 50px;
 }
 
-.nav-links li {
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
     margin-left: 20px;
 }
 
-.nav-links a {
-    color: var(--text-color);
-    text-decoration: none;
+nav ul li a {
+    color: var(--dark-color);
     font-weight: bold;
 }
 
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.hero {
-    background-image: url('https://valorfinanciamentos.com.br/wp-content/uploads/2020/11/stock-market-graph-business-forex-trading-investment-financial-stock-chart-exchange-growth-crisis-money_73523-2631.jpg');
+/* Hero Section */
+.hero-section {
+    background-image: url('path/to/hero-image.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
     align-items: center;
     text-align: center;
-    color: #fff;
+    color: white;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.hero .container {
-    position: relative;
-    z-index: 1;
-}
-
-.hero h1 {
+.hero-section h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.about-section, .products-section, .loan-simulator, .news-section, .gerentes-section {
+/* Serviços */
+.services-section {
     padding: 4rem 0;
 }
 
-.product-grid {
+.service-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
 
-.product-item {
-    background-color: #fff;
+.service-item {
+    background-color: white;
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     text-align: center;
 }
 
-.product-item i {
+.service-item i {
     font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
-.loan-simulator {
-    background-color: #fff;
+/* Simulador de Empréstimo */
+.loan-simulator-section {
+    background-color: var(--light-color);
+    padding: 4rem 0;
 }
 
-.slider-container {
-    margin-bottom: 1.5rem;
-}
-
-input[type="range"] {
-    width: 100%;
-    margin-top: 0.5rem;
-}
-
-.news-section {
-    background-color: var(--background-color);
-}
-
-.news-grid {
+#loan-form {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 0.5rem;
+}
+
+.input-group input,
+.input-group select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Sobre Nós */
+.about-section {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+/* Depoimentos */
+.testimonials-section {
+    padding: 4rem 0;
+    background-color: var(--light-color);
+}
+
+.testimonial-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.testimonial-item {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* FAQ */
+.faq-section {
+    padding: 4rem 0;
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    background-color: var(--light-color);
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.faq-answer {
+    padding: 1rem;
+    display: none;
+}
+
+/* Contato */
+.contact-section {
+    padding: 4rem 0;
+    background-color: var(--light-color);
+}
+
+#contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Educação Financeira */
+.financial-education-section {
+    padding: 4rem 0;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
 
-.news-item {
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.education-item {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.news-item h3 {
-    margin-bottom: 1rem;
+/* Calculadora de Capacidade de Endividamento */
+.debt-capacity-section {
+    padding: 4rem 0;
+    background-color: var(--light-color);
 }
 
-.read-more {
-    display: inline-block;
-    margin-top: 1rem;
-    color: var(--primary-color);
-    text-decoration: none;
+/* Calculadora de Objetivos Financeiros */
+.financial-goals-section {
+    padding: 4rem 0;
+}
+
+/* Comparação de Taxas */
+.rate-comparison-section {
+    padding: 4rem 0;
+    background-color: var(--light-color);
+}
+
+.rate-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.rate-table th,
+.rate-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.rate-table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.savings {
+    color: var(--success-color);
     font-weight: bold;
 }
 
-.gerentes-section {
-    background-color: #fff;
+/* Simulador de Refinanciamento */
+.refinancing-simulator-section {
+    padding: 4rem 0;
 }
 
-.gerente-card {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 2rem;
+/* Calendário Financeiro */
+.financial-calendar-section {
+    padding: 4rem 0;
+    background-color: var(--light-color);
+}
+
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Jogo Financeiro */
+.financial-game-section {
+    padding: 4rem 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--success-color);
+    transition: width 0.3s ease;
+}
+
+/* Análise de Crédito */
+.credit-analysis-section {
+    padding: 4rem 0;
+    background-color: var(--light-color);
+}
+
+/* Programa de Indicação */
+.referral-program-section {
+    padding: 4rem 0;
+}
+
+.referral-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.step {
+    flex: 1;
     text-align: center;
+    padding: 1rem;
 }
 
-.gerente-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
+.step i {
+    font-size: 3rem;
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
-.contact-cta {
-    text-align: center;
+/* Perfil de Investidor */
+.investor-profile-section {
     padding: 4rem 0;
-    background-color: var(--primary-color);
+    background-color: var(--light-color);
 }
 
-.contact-button {
-    font-size: 1.4rem;
-    padding: 1.2rem 2.5rem;
-    background-color: #25D366;
-    color: #ffffff;
-    border: none;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    display: inline-block;
+/* Segurança e Privacidade */
+.security-section {
+    padding: 4rem 0;
 }
 
-.contact-button:hover {
-    background-color: #128C7E;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+.security-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
 }
 
-.contact-button i {
-    margin-right: 10px;
+.feature {
+    text-align: center;
 }
 
+.feature i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Parceiros e Certificações */
+.partners-certifications-section {
+    padding: 4rem 0;
+    background-color: var(--light-color);
+}
+
+.partners-grid,
+.certifications {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+/* Recursos e Ferramentas */
+.resources-section {
+    padding: 4rem 0;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.resource-item {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.resource-item i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Responsabilidade Social */
+.social-responsibility-section {
+    padding: 4rem 0;
+    background-color: var(--light-color);
+}
+
+.initiative-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.initiative-item {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.initiative-item i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Footer */
 footer {
-    background-color: var(--secondary-color);
-    color: #fff;
-    padding: 2rem 0;
+    background-color: var(--dark-color);
+    color: white;
+    padding: 4rem 0 2rem;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
 }
 
-.footer-menu, .footer-contact, .footer-social, .footer-map {
-    flex: 1;
+.footer-section h3 {
     margin-bottom: 1rem;
-    min-width: 200px;
 }
 
-.footer-menu ul {
-    list-style: none;
-}
-
-.footer-menu a, .footer-social a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-social a {
-    font-size: 1.5rem;
-    margin-right: 1rem;
+.footer-section a {
+    color: white;
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
 .copyright {
-    text-align: center;
     margin-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
-.scroll-to-top {
+/* Chatbot */
+.chatbot-container {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: var(--primary-color);
-    color: #fff;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
-    font-size: 20px;
-    text-decoration: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.scroll-to-top.show {
-    opacity: 1;
-}
-
-.cookie-consent {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(51, 51, 51, 0.95);
-    color: #fff;
-    padding: 1.5rem;
-    text-align: center;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     display: none;
-    z-index: 1000;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.cookie-consent h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.cookie-consent p {
-    margin-bottom: 1rem;
-}
-
-.cookie-consent button {
+#chatbot-header {
     background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatbot-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+#chatbot-input-container {
+    display: flex;
+    padding: 10px;
+}
+
+#chatbot-input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.cookie-consent button:hover {
-    background-color: #0082b3;
+#send-message {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-(max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
+.open-chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background-color: #fff;
-        padding: 1rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 0.5rem 0;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-    }
-
-    .footer-content {
+/* Responsividade */
+.media (max-width: 768px) {
+    nav {
         flex-direction: column;
     }
 
-    .footer-menu, .footer-contact, .footer-social, .footer-map {
+    nav ul {
+        margin-top: 1rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .referral-steps {
+        flex-direction: column;
+    }
+
+    .chatbot-container {
         width: 100%;
-        margin-bottom: 2rem;
+        height: 50vh;
+        bottom: 0;
+        right: 0;
     }
 }
