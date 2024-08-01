@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+Document.addEventListener('DOMContentLoaded', function() {
     // Simulador de Empréstimo
     const loanForm = document.getElementById('loan-form');
     const loanResult = document.getElementById('loan-result');
