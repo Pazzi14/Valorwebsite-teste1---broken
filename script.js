@@ -1,5 +1,5 @@
-Document.addEventListener('DOMContentLoaded', function() {
-    // Simulador de Empréstimo
+document.addEventListener('DOMContentLoaded', function() {
+
     const loanForm = document.getElementById('loan-form');
     const loanResult = document.getElementById('loan-result');
 
@@ -31,7 +31,7 @@ Document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // FAQ Accordion
+
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
@@ -50,7 +50,7 @@ Document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Chatbot
+
     const openChatbotBtn = document.getElementById('open-chatbot');
     const closeChatbotBtn = document.getElementById('close-chatbot');
     const chatbotContainer = document.getElementById('chatbot-container');
@@ -123,7 +123,7 @@ Document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Slider de Depoimentos
+
     const testimonialSlider = document.querySelector('.testimonial-slider');
     if (testimonialSlider) {
         let isDown = false;
