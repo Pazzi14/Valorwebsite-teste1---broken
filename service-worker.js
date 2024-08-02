@@ -2,13 +2,15 @@ const CACHE_NAME = 'valor-financiamentos-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/styles.css',
+  '/style.css',
   '/script.js',
-  '/images/logo-valor-financiamentos.png',
-  '/images/financas-background.jpg',
-  '/images/icon-192x192.png',
-  '/images/icon-512x512.png',
-  '/images/favicon.ico'
+  '/pages/contato.html',
+  '/pages/emprestimos.html',
+  '/pages/politica-privacidade.html',
+  '/pages/simulador.html',
+  '/pages/termos-de-uso.html',
+  '/image/logo-valor-financiamentos.png',
+  '/image/financas-background.jpg'
 ];
 
 self.addEventListener('install', function(event) {
