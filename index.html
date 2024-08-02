@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valor Financiamentos - Soluções Financeiras Personalizadas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,6 +15,11 @@
                 <div class="logo">
                     <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2023/09/logo-valor-financiamentos-1.png" alt="Valor Financiamentos Logo">
                 </div>
+                <button class="mobile-menu-toggle" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <ul>
                     <li><a href="#home">Início</a></li>
                     <li><a href="#services">Serviços</a></li>
@@ -34,7 +39,7 @@
             </div>
         </section>
 
-        <section id="services" class="services-section">
+        <section id="services" class="services-section reveal">
             <div class="container">
                 <h2>Nossos Serviços</h2>
                 <div class="service-grid">
@@ -57,17 +62,18 @@
             </div>
         </section>
 
-        <section id="loan-simulator" class="loan-simulator-section">
+        <section id="loan-simulator" class="loan-simulator-section reveal">
             <div class="container">
                 <h2>Simulador de Empréstimo</h2>
                 <form id="loan-form">
                     <div class="input-group">
                         <label for="loan-amount">Valor do Empréstimo:</label>
-                        <input type="number" id="loan-amount" required>
+                        <input type="range" id="loan-amount" min="1000" max="100000" step="1000" value="50000">
+                        <output for="loan-amount" id="loan-amount-output">R$ 50.000</output>
                     </div>
                     <div class="input-group">
                         <label for="loan-term">Prazo (meses):</label>
-                        <input type="number" id="loan-term" required>
+                        <input type="number" id="loan-term" min="1" max="72" value="12" required>
                     </div>
                     <div class="input-group">
                         <label for="loan-type">Tipo de Empréstimo:</label>
@@ -83,14 +89,14 @@
             </div>
         </section>
 
-        <section id="about" class="about-section">
+        <section id="about" class="about-section reveal">
             <div class="container">
                 <h2>Sobre a Valor Financiamentos</h2>
                 <p>Somos uma empresa comprometida em oferecer as melhores soluções financeiras para nossos clientes. Com anos de experiência no mercado, nossa equipe está pronta para ajudar você a alcançar seus objetivos financeiros.</p>
             </div>
         </section>
 
-        <section id="testimonials" class="testimonials-section">
+        <section id="testimonials" class="testimonials-section reveal">
             <div class="container">
                 <h2>O Que Nossos Clientes Dizem</h2>
                 <div class="testimonial-slider">
@@ -110,7 +116,7 @@
             </div>
         </section>
 
-        <section id="faq" class="faq-section">
+        <section id="faq" class="faq-section reveal">
             <div class="container">
                 <h2>Perguntas Frequentes</h2>
                 <div class="faq-accordion">
@@ -136,7 +142,7 @@
             </div>
         </section>
 
-        <section id="contact" class="contact-section">
+        <section id="contact" class="contact-section reveal">
             <div class="container">
                 <h2>Entre em Contato</h2>
                 <form id="contact-form">
@@ -172,9 +178,9 @@
                 </div>
                 <div class="footer-section">
                     <h3>Redes Sociais</h3>
-                    <a href="https://www.instagram.com/valorfinanciamentosoficial/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-                    <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://www.instagram.com/valorfinanciamentosoficial/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
                 <div class="footer-section">
                     <h3>Links Úteis</h3>
