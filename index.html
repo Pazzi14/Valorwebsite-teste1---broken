@@ -4,91 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valor Financiamentos</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0056b3">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-    <img src="images/logo-valor-financiamentos.png" alt="Logo Valor Financiamentos" class="logo">
-    <!-- Resto do conteúdo do header -->
-        <nav aria-label="Menu principal">
+        <img src="images/logo-valor-financiamentos.png" alt="Logo Valor Financiamentos" class="logo">
+        <nav>
             <ul>
-                <li><a href="/" aria-current="page">Home</a></li>
-                <li><a href="/pages/emprestimos.html">Empréstimos</a></li>
-                <li><a href="/pages/simulador.html">Simulador</a></li>
-                <li><a href="/pages/contato.html">Contato</a></li>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#simulador">Simulador</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h1>Bem-vindo à Valor Financiamentos</h1>
-        
-        <section id="loan-simulator" class="simulator">
-            <h2>Simulador de Empréstimo Rápido</h2>
-            <form id="quick-simulator-form">
-                <label for="quick-loan-amount">Valor do Empréstimo:</label>
-                <input type="range" id="quick-loan-amount" min="1000" max="100000" step="1000" value="10000">
-                <output for="quick-loan-amount" id="quick-loan-amount-output">R$ 10.000</output>
+        <section id="inicio" class="hero">
+            <h1>Bem-vindo à Valor Financiamentos</h1>
+            <p>Soluções financeiras personalizadas para você</p>
+        </section>
 
-                <label for="quick-loan-term">Prazo (meses):</label>
-                <input type="range" id="quick-loan-term" min="6" max="60" step="6" value="24">
-                <output for="quick-loan-term" id="quick-loan-term-output">24 meses</output>
+        <section id="servicos">
+            <h2>Nossos Serviços</h2>
+            <div class="servicos-grid">
+                <div class="servico-item">
+                    <h3>Empréstimo Pessoal</h3>
+                    <p>Crédito rápido e fácil para suas necessidades.</p>
+                </div>
+                <div class="servico-item">
+                    <h3>Empréstimo Consignado</h3>
+                    <p>Taxas especiais para servidores públicos e aposentados.</p>
+                </div>
+                <div class="servico-item">
+                    <h3>Antecipação do FGTS</h3>
+                    <p>Acesse seu FGTS antes do prazo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="simulador">
+            <h2>Simulador de Empréstimo</h2>
+            <form id="loan-simulator">
+                <label for="loan-amount">Valor do Empréstimo:</label>
+                <input type="number" id="loan-amount" name="loan-amount" required min="100">
+
+                <label for="loan-term">Prazo (em meses):</label>
+                <input type="number" id="loan-term" name="loan-term" required min="1" max="120">
 
                 <button type="submit">Simular</button>
             </form>
-            <div id="quick-simulation-result"></div>
+            <div id="simulation-result"></div>
         </section>
 
-        <section id="chatbot" class="chatbot">
-            <div class="chat-header">
-                <h3>Assistente Virtual</h3>
-            </div>
-            <div id="chat-messages" class="chat-messages"></div>
-            <form id="chat-form">
-                <input type="text" id="user-input" placeholder="Digite sua pergunta...">
-                <button type="submit">Enviar</button>
-            </form>
-            <section class="hero" style="background-image: url('images/financas-background.jpg');">
-    <h1>Bem-vindo à Valor Financiamentos</h1>
-    <!-- Resto do conteúdo da seção hero -->
-</section>
+        <section id="contato">
+            <h2>Entre em Contato</h2>
+            <p>Email: contato@valorfinanciamentos.com.br</p>
+            <p>Telefone: (11) 1234-5678</p>
+            <p>Endereço: Av. Paulista, 1000 - São Paulo, SP</p>
         </section>
     </main>
 
     <footer>
-        <div class="legal-links">
-            <a href="/pages/politica-privacidade.html">Política de Privacidade</a>
-            <a href="/pages/termos-de-uso.html">Termos de Uso</a>
-        </div>
+        <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FinancialService",
-      "name": "Valor Financiamentos",
-      "url": "https://valorfinanciamentos.com.br",
-      "logo": "https://valorfinanciamentos.com.br/images/logo.png",
-      "description": "Oferecemos soluções de empréstimo pessoal e consignado com as melhores taxas do mercado.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Rua Exemplo, 123",
-        "addressLocality": "São Paulo",
-        "addressRegion": "SP",
-        "postalCode": "01234-567",
-        "addressCountry": "BR"
-      },
-      "telephone": "+55 11 1234-5678",
-      "openingHours": "Mo-Fr 09:00-18:00",
-      "sameAs": [
-        "https://www.facebook.com/valorfinanciamentos",
-        "https://www.instagram.com/valorfinanciamentosoficial",
-        "https://www.linkedin.com/company/valorfinanciamentos"
-      ]
-    }
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
     </script>
 </body>
 </html>
