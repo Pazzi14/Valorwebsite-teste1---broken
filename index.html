@@ -7,23 +7,22 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0056b3">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <img src="images/logo-valor-financiamentos.png" alt="Logo Valor Financiamentos" class="logo">
+        <img src="image/logo-valor-financiamentos.png" alt="Logo Valor Financiamentos" class="logo">
         <nav>
             <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#simulador">Simulador</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="pages/emprestimos.html">Empréstimos</a></li>
+                <li><a href="pages/simulador.html">Simulador</a></li>
+                <li><a href="pages/contato.html">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="inicio" class="hero">
+        <section class="hero">
             <h1>Bem-vindo à Valor Financiamentos</h1>
             <p>Soluções financeiras personalizadas para você</p>
         </section>
@@ -45,44 +44,16 @@
                 </div>
             </div>
         </section>
-
-        <section id="simulador">
-            <h2>Simulador de Empréstimo</h2>
-            <form id="loan-simulator">
-                <label for="loan-amount">Valor do Empréstimo:</label>
-                <input type="number" id="loan-amount" name="loan-amount" required min="100">
-
-                <label for="loan-term">Prazo (em meses):</label>
-                <input type="number" id="loan-term" name="loan-term" required min="1" max="120">
-
-                <button type="submit">Simular</button>
-            </form>
-            <div id="simulation-result"></div>
-        </section>
-
-        <section id="contato">
-            <h2>Entre em Contato</h2>
-            <p>Email: contato@valorfinanciamentos.com.br</p>
-            <p>Telefone: (11) 1234-5678</p>
-            <p>Endereço: Av. Paulista, 1000 - São Paulo, SP</p>
-        </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
+        <nav>
+            <a href="pages/politica-privacidade.html">Política de Privacidade</a> |
+            <a href="pages/termos-de-uso.html">Termos de Uso</a>
+        </nav>
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(err) {
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
-    </script>
 </body>
 </html>
