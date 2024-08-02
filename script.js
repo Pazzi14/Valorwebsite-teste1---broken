@@ -1,6 +1,7 @@
-dOcument.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const loanSimulator = document.getElementById('loan-simulator');
     const simulationResult = document.getElementById('simulation-result');
+    const contactForm = document.getElementById('contact-form');
 
     if (loanSimulator) {
         loanSimulator.addEventListener('submit', function(e) {
@@ -10,8 +11,7 @@ dOcument.addEventListener('DOMContentLoaded', function() {
             
             if (isNaN(amount) || isNaN(term) || amount < 100 || term < 1 || term > 120) {
                 simulationResult.innerHTML = '<p class="error">Por favor, insira valores válidos. O valor mínimo é R$ 100 e o prazo deve ser entre 1 e 120 meses.</p>';
-                return;
-            }
+                return            }
 
             // Simulação com taxa de juros variável baseada no prazo
             let annualRate;
@@ -37,6 +37,16 @@ dOcument.addEventListener('DOMContentLoaded', function() {
                 <p>Total de Juros: R$ ${totalInterest.toFixed(2)}</p>
                 <p>Total a Pagar: R$ ${totalPayment.toFixed(2)}</p>
             `;
+        });
+    }
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aqui você adicionaria o código para enviar o formulário para um servidor
+            // Por enquanto, vamos apenas mostrar uma mensagem de sucesso
+            alert('Obrigado por entrar em contato! Retornaremos em breve.');
+            contactForm.reset();
         });
     }
 });
