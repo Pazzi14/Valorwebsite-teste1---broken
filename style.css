@@ -74,6 +74,17 @@ nav ul li a:hover {
 
 .mobile-menu-toggle {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-color);
+    margin: 5px 0;
 }
 
 /* Hero Section Styles */
@@ -310,10 +321,6 @@ footer {
 (max-width: 768px) {
     .mobile-menu-toggle {
         display: block;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
     }
 
     nav ul {
