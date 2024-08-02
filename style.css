@@ -1,11 +1,3 @@
-:root {
-    --primary-color: #00a859;
-    --secondary-color: #6c757d;
-    --light-color: #f8f9fa;
-    --dark-color: #343a40;
-    --font-family: 'Roboto', sans-serif;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -13,26 +5,24 @@
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: var(--dark-color);
-    background-color: var(--light-color);
+    color: #333;
 }
 
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 20px;
 }
 
 header {
-    background-color: white;
+    background-color: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
+    width: 100%;
     top: 0;
-    left: 0;
-    right: 0;
     z-index: 1000;
 }
 
@@ -40,80 +30,69 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 20px 0;
 }
 
 .logo img {
     height: 50px;
-    max-width: 200px;
-    object-fit: contain;
 }
 
-nav ul {
+.nav-menu {
     display: flex;
     list-style-type: none;
 }
 
-nav ul li {
+.nav-menu li {
     margin-left: 20px;
 }
 
-nav ul li a {
-    color: var(--dark-color);
+.nav-menu li a {
     text-decoration: none;
+    color: #333;
     font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: var(--primary-color);
 }
 
 .mobile-menu-toggle {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.hero-section {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvW1cdGqQfYSGHrzqvnT9syVCfb7d9ytzqcA&usqp=CAU');
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+}
+
+.hero {
+    background-image: url('https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/banner-home-1.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
     align-items: center;
     text-align: center;
-    color: white;
-    margin-top: 70px;
-    position: relative;
+    color: #fff;
 }
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-.hero-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-section h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
 .cta-button {
     display: inline-block;
+    background-color: #00a859;
+    color: #fff;
     padding: 10px 20px;
-    background-color: var(--primary-color);
-    color: white;
     text-decoration: none;
     border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
@@ -122,26 +101,25 @@ nav ul li a:hover {
 }
 
 section {
-    padding: 4rem 0;
+    padding: 80px 0;
 }
 
-section h2 {
+h2 {
     text-align: center;
-    margin-bottom: 2rem;
-    color: var(--primary-color);
+    margin-bottom: 40px;
+    color: #00a859;
 }
 
 .service-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: 30px;
 }
 
 .service-item {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
     text-align: center;
     transition: transform 0.3s ease;
 }
@@ -152,104 +130,138 @@ section h2 {
 
 .service-item i {
     font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+    color: #00a859;
+    margin-bottom: 15px;
 }
 
-.about-section, .contact-section {
-    background-color: white;
+.simulator {
+    background-color: #f4f4f4;
 }
 
-form {
+#loan-simulator {
     max-width: 500px;
     margin: 0 auto;
 }
 
 .input-group {
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 5px;
 }
 
-.input-group input,
-.input-group textarea {
+.input-group input {
     width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#simulation-result {
+    max-width: 500px;
+    margin: 20px auto 0;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#simulation-result h3 {
+    margin-bottom: 15px;
+    color: #00a859;
+}
+
+#simulation-result p {
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.contact form {
+    display: grid;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
 footer {
-    background-color: var(--dark-color);
-    color: white;
-    padding: 2rem 0;
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    margin-bottom: 20px;
 }
 
 .footer-section h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
 }
 
 .footer-section a {
-    color: white;
+    color: #fff;
     text-decoration: none;
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 5px;
 }
 
 .copyright {
     text-align: center;
-    margin-top: 2rem;
-    padding-top: 1rem;
+    margin-top: 20px;
+    padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-(max-width: 768px) {
+@media (max-width: 768px) {
     .mobile-menu-toggle {
         display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
     }
 
-    .mobile-menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--dark-color);
-        margin: 5px 0;
-    }
-
-    nav ul {
+    .nav-menu {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        background: white;
+        background: #fff;
         flex-direction: column;
         text-align: center;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    nav ul.show {
+    .nav-menu.show {
         display: flex;
     }
 
-    nav ul li {
+    .nav-menu li {
         margin: 0;
         padding: 10px;
     }
 
-    .hero-section h1 {
+    .hero h1 {
         font-size: 2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
     }
 }
