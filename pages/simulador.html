@@ -4,99 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador - Valor Financiamentos</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
-        <nav aria-label="Menu principal">
+        <img src="../image/logo-valor-financiamentos.png" alt="Logo Valor Financiamentos" class="logo">
+        <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/pages/emprestimos.html">Empréstimos</a></li>
-                <li><a href="/pages/simulador.html" aria-current="page">Simulador</a></li>
-                <li><a href="/pages/contato.html">Contato</a></li>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="emprestimos.html">Empréstimos</a></li>
+                <li><a href="simulador.html">Simulador</a></li>
+                <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <h1>Simulador de Empréstimo</h1>
-        
-        <section id="loan-simulator" class="simulator">
-            <h2>Simule seu Empréstimo</h2>
-            <form id="simulator-form">
-                <label for="loan-type">Tipo de Empréstimo:</label>
-                <select id="loan-type" name="loan-type" required>
-                    <option value="">Selecione o tipo</option>
-                    <option value="pessoal">Empréstimo Pessoal</option>
-                    <option value="consignado">Empréstimo Consignado</option>
-                    <option value="fgts">Antecipação FGTS</option>
-                </select>
+        <form id="loan-simulator">
+            <label for="loan-amount">Valor do Empréstimo:</label>
+            <input type="number" id="loan-amount" name="loan-amount" required min="100">
 
-                <label for="loan-amount">Valor do Empréstimo:</label>
-                <input type="range" id="loan-amount" min="1000" max="100000" step="1000" value="10000">
-                <output for="loan-amount" id="loan-amount-output">R$ 10.000</output>
+            <label for="loan-term">Prazo (em meses):</label>
+            <input type="number" id="loan-term" name="loan-term" required min="1" max="120">
 
-                <label for="loan-term">Prazo (meses):</label>
-                <input type="range" id="loan-term" min="6" max="84" step="6" value="24">
-                <output for="loan-term" id="loan-term-output">24 meses</output>
-
-                <button type="submit">Simular</button>
-            </form>
-            <div id="simulation-result"></div>
-        </section>
+            <button type="submit">Simular</button>
+        </form>
+        <div id="simulation-result"></div>
     </main>
 
     <footer>
-        <div class="legal-links">
-            <a href="/pages/politica-privacidade.html">Política de Privacidade</a>
-            <a href="/pages/termos-de-uso.html">Termos de Uso</a>
-        </div>
+        <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
+        <nav>
+            <a href="politica-privacidade.html">Política de Privacidade</a> |
+            <a href="termos-de-uso.html">Termos de Uso</a>
+        </nav>
     </footer>
 
-    <script src="/script.js"></script>
-    <script>
-    document.getElementById('simulator-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const loanType = document.getElementById('loan-type').value;
-        const amount = parseFloat(document.getElementById('loan-amount').value);
-        const term = parseInt(document.getElementById('loan-term').value);
-        
-        let rate;
-        switch(loanType) {
-            case 'pessoal':
-                rate = 0.0199; // 1.99% ao mês
-                break;
-            case 'consignado':
-                rate = 0.0149; // 1.49% ao mês
-                break;
-            case 'fgts':
-                rate = 0.0179; // 1.79% ao mês
-                break;
-            default:
-                alert('Por favor, selecione um tipo de empréstimo.');
-                return;
-        }
-
-        const monthlyPayment = (amount * rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
-        const totalPayment = monthlyPayment * term;
-        const totalInterest = totalPayment - amount;
-
-        document.getElementById('simulation-result').innerHTML = `
-            <h3>Resultado da Simulação</h3>
-            <p>Tipo de Empréstimo: ${document.getElementById('loan-type').options[document.getElementById('loan-type').selectedIndex].text}</p>
-            <p>Valor do Empréstimo: R$ ${amount.toFixed(2)}</p>
-            <p>Prazo: ${term} meses</p>
-            <p>Taxa de Juros: ${(rate * 100).toFixed(2)}% ao mês</p>
-            <p>Pagamento Mensal: R$ ${monthlyPayment.toFixed(2)}</p>
-            <p>Total a Pagar: R$ ${totalPayment.toFixed(2)}</p>
-            <p>Total de Juros: R$ ${totalInterest.toFixed(2)}</p>
-            <button onclick="solicitarEmprestimo()">Solicitar este Empréstimo</button>
-        `;
-    });
-
-    function solicitarEmprestimo() {
-        alert('Obrigado pelo seu interesse! Um de nossos consultores entrará em contato em breve para prosseguir com sua solicitação.');
-    }
-    </script>
+    <script src="../script.js"></script>
 </body>
 </html>
