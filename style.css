@@ -104,7 +104,7 @@ footer {
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+(max-width: 768px) {
     nav ul li {
         display: block;
         margin-bottom: 10px;
