@@ -307,7 +307,7 @@ footer {
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+(max-width: 768px) {
     .mobile-menu-toggle {
         display: block;
         background: none;
