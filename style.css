@@ -108,5 +108,17 @@ footer {
     nav ul li {
         display: block;
         margin-bottom: 10px;
+}
+.logo {
+    max-width: 200px;
+    height: auto;
+}
+
+.hero {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+}
     }
 }
