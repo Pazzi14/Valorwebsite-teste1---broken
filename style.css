@@ -65,6 +65,24 @@ nav ul li a {
     font-weight: bold;
 }
 
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.mobile-menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
 .hero-section {
     background-image: url('https://valorfinanciamentos.com.br/wp-content/uploads/2023/09/banner-home-valor-financiamentos.jpg');
     background-size: cover;
@@ -222,6 +240,7 @@ footer {
     display: none;
     flex-direction: column;
     overflow: hidden;
+    z-index: 1000;
 }
 
 #chatbot-header {
@@ -271,45 +290,52 @@ footer {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    z-index: 999;
 }
 
-.loan-simulator-section {
-    background-color: #f9f9f9;
-    padding: 4rem 0;
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s, transform 0.5s;
 }
 
-#loan-form {
-    max-width: 500px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-#loan-result {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: var(--light-color);
-    border-radius: 5px;
-}
-
-(max-width: 768px) {
-    nav {
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
         flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    nav ul {
-        margin-top: 1rem;
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
     }
 
     .hero-section h1 {
         font-size: 2rem;
-    }
-
-    .service-grid,
-    .footer-content {
-        grid-template-columns: 1fr;
     }
 
     .chatbot-container {
