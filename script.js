@@ -47,6 +47,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Menu Mobile
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+        });
+    }
+
     // Chatbot
     const openChatbotBtn = document.getElementById('open-chatbot');
     const closeChatbotBtn = document.getElementById('close-chatbot');
@@ -57,39 +67,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function addMessage(message, isUser = false) {
         const messageElement = document.createElement('div');
-        messageElement.classList.add('message');
-        messageElement.classList.add(isUser ? 'user-message' : 'bot-message');
+        messageElement.classList.add('message', isUser ? 'user-message' : 'bot-message');
         messageElement.textContent = message;
         chatbotMessages.appendChild(messageElement);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
 
     function getBotResponse(message) {
-        if (message.toLowerCase().includes('empréstimo')) {
+        const lowerMessage = message.toLowerCase();
+        if (lowerMessage.includes('empréstimo')) {
             return "Para solicitar um empréstimo, por favor, use nosso simulador de empréstimo ou entre em contato conosco através do formulário de contato.";
-        } else if (message.toLowerCase().includes('taxas')) {
+        } else if (lowerMessage.includes('taxas') || lowerMessage.includes('juros')) {
             return "Nossas taxas variam de acordo com o tipo de empréstimo e sua situação financeira. Por favor, use nosso simulador para obter uma estimativa personalizada.";
+        } else if (lowerMessage.includes('contato') || lowerMessage.includes('falar com atendente')) {
+            return "Para falar com um de nossos atendentes, por favor, ligue para (11) 3717-6415 ou preencha o formulário de contato em nosso site.";
         } else {
             return "Desculpe, não entendi sua pergunta. Pode reformular ou entrar em contato com nossa equipe para um atendimento personalizado?";
         }
     }
 
-    if (openChatbotBtn) {
+    if (openChatbotBtn && closeChatbotBtn && chatbotContainer && sendMessageBtn && chatbotInput) {
         openChatbotBtn.addEventListener('click', () => {
             chatbotContainer.style.display = 'flex';
             openChatbotBtn.style.display = 'none';
         });
-    }
 
-    if (closeChatbotBtn) {
         closeChatbotBtn.addEventListener('click', () => {
             chatbotContainer.style.display = 'none';
             openChatbotBtn.style.display = 'block';
         });
-    }
 
-    if (sendMessageBtn && chatbotInput) {
-        sendMessageBtn.addEventListener('click', () => {
+        sendMessageBtn.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
             const message = chatbotInput.value.trim();
             if (message) {
                 addMessage(message, true);
@@ -99,13 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     addMessage(botResponse);
                 }, 500);
             }
-        });
-
-        chatbotInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessageBtn.click();
-            }
-        });
+        }
     }
 
     // Smooth Scroll
@@ -117,16 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
-
-    // Menu Mobile
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('nav ul');
-
-    if (mobileMenuToggle && navMenu) {
-        mobileMenuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
-    }
 
     // Animação de Scroll
     function reveal() {
