@@ -37,15 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // FAQ Accordion
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const answer = question.nextElementSibling;
-            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-        });
-    });
-
     // Formulário de Contato
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
@@ -126,36 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
-
-    // Slider de Depoimentos
-    const testimonialSlider = document.querySelector('.testimonial-slider');
-    if (testimonialSlider) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        testimonialSlider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX - testimonialSlider.offsetLeft;
-            scrollLeft = testimonialSlider.scrollLeft;
-        });
-
-        testimonialSlider.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
-
-        testimonialSlider.addEventListener('mouseup', () => {
-            isDown = false;
-        });
-
-        testimonialSlider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - testimonialSlider.offsetLeft;
-            const walk = (x - startX) * 3;
-            testimonialSlider.scrollLeft = scrollLeft - walk;
-        });
-    }
 
     // Menu Mobile
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
