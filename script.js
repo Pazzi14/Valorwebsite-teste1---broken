@@ -5,7 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const loanAmountSlider = document.getElementById('loan-amount');
     const loanAmountOutput = document.getElementById('loan-amount-output');
 
-    if (loanForm) {
+    if (loanForm && loanAmountSlider && loanAmountOutput) {
+        loanAmountSlider.addEventListener('input', function() {
+            loanAmountOutput.value = `R$ ${parseInt(this.value).toLocaleString('pt-BR')}`;
+        });
+
         loanForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const amount = parseFloat(loanAmountSlider.value);
@@ -25,17 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             loanResult.innerHTML = `
                 <h3>Resultado da Simulação</h3>
-                <p>Valor do Empréstimo: R$ ${amount.toFixed(2)}</p>
+                <p>Valor do Empréstimo: R$ ${amount.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
                 <p>Prazo: ${term} meses</p>
-                <p>Pagamento Mensal: R$ ${monthlyPayment.toFixed(2)}</p>
-                <p>Total a Pagar: R$ ${totalPayment.toFixed(2)}</p>
+                <p>Pagamento Mensal: R$ ${monthlyPayment.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p>Total a Pagar: R$ ${totalPayment.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
             `;
-        });
-    }
-
-    if (loanAmountSlider && loanAmountOutput) {
-        loanAmountSlider.addEventListener('input', function() {
-            loanAmountOutput.value = `R$ ${this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ".")}`;
         });
     }
 
@@ -99,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    if (sendMessageBtn) {
+    if (sendMessageBtn && chatbotInput) {
         sendMessageBtn.addEventListener('click', () => {
             const message = chatbotInput.value.trim();
             if (message) {
@@ -111,9 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 500);
             }
         });
-    }
 
-    if (chatbotInput) {
         chatbotInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 sendMessageBtn.click();
@@ -169,24 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('show');
         });
-    }
-
-    // Inicialização do Mapa (se estiver sendo usado)
-    function initMap() {
-        const location = { lat: -23.550520, lng: -46.633309 }; // Coordenadas de São Paulo
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 15,
-            center: location,
-        });
-        const marker = new google.maps.Marker({
-            position: location,
-            map: map,
-        });
-    }
-
-    // Se o elemento do mapa existir, inicialize-o
-    if (document.getElementById('map')) {
-        initMap();
     }
 
     // Animação de Scroll
