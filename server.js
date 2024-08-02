@@ -1,29 +1,22 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
-app.use(bodyParser.json());
+// Servir arquivos estáticos da pasta raiz
+app.use(express.static(path.join(__dirname)));
 
-// Rota para processar simulações de empréstimo
-app.post('/api/simulate-loan', (req, res) => {
-  const { loanType, amount, term } = req.body;
-  // Lógica para calcular o empréstimo
-  // ...
-  res.json({ /* resultados da simulação */ });
+// Rota para a página inicial
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Rota para processar formulários de contato
-app.post('/api/contact', (req, res) => {
-  const { name, email, message } = req.body;
-  // Lógica para salvar a mensagem ou enviar e-mail
-  // ...
-  res.json({ success: true, message: 'Mensagem recebida com sucesso' });
+// Rota para as páginas na pasta 'pages'
+app.get('/pages/:page', (req, res) => {
+    res.sendFile(path.join(__dirname, 'pages', `${req.params.page}.html`));
 });
 
+// Iniciar o servidor
 app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+    console.log(`Servidor rodando em http://localhost:${port}`);
 });
