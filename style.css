@@ -126,7 +126,7 @@ footer {
     margin-top: 2rem;
 }
 
-@media (max-width: 768px) {
+.media (max-width: 768px) {
     header {
         flex-direction: column;
     }
