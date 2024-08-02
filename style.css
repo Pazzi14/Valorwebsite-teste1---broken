@@ -286,7 +286,7 @@ footer {
     transform: translateY(0);
 }
 
-(max-width: 768px) {
+@media (max-width: 768px) {
     nav ul {
         display: none;
         flex-direction: column;
