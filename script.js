@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileMenuToggle && navMenu) {
         mobileMenuToggle.addEventListener('click', function() {
             navMenu.classList.toggle('show');
+            this.classList.toggle('active');
         });
     }
 
@@ -24,18 +25,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
             if (targetElement) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                 window.scrollTo({
-                    top: targetElement.offsetTop - 70,
+                    top: targetPosition,
                     behavior: 'smooth'
                 });
             }
             if (navMenu.classList.contains('show')) {
                 navMenu.classList.remove('show');
+                mobileMenuToggle.classList.remove('active');
             }
         });
     });
 
-    // Simulador de empréstimo
     const loanSimulator = document.getElementById('loan-simulator');
     const simulationResult = document.getElementById('simulation-result');
     const monthlyPaymentElement = document.getElementById('monthly-payment');
