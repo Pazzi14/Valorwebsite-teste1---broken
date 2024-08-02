@@ -1,74 +1,108 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+// Simulador de empréstimo rápido
+const quickSimulatorForm = document.getElementById('quick-simulator-form');
+if (quickSimulatorForm) {
+    quickSimulatorForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const amount = parseFloat(document.getElementById('quick-loan-amount').value);
+        const term = parseInt(document.getElementById('quick-loan-term').value);
+        const rate = 0.0199; // 1.99% ao mês
 
-    if (mobileMenuToggle && navMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('show');
-            this.classList.toggle('active');
-        });
-    }
+        const monthlyPayment = (amount * rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
+        const totalPayment = monthlyPayment * term;
+        const totalInterest = totalPayment - amount;
 
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            contactForm.reset();
-        });
-    }
-
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                const headerHeight = document.querySelector('header').offsetHeight;
-                window.scrollTo({
-                    top: targetElement.offsetTop - headerHeight,
-                    behavior: 'smooth'
-                });
-            }
-            if (navMenu.classList.contains('show')) {
-                navMenu.classList.remove('show');
-                mobileMenuToggle.classList.remove('active');
-            }
-        });
+        document.getElementById('quick-simulation-result').innerHTML = `
+            <h3>Resultado da Simulação Rápida</h3>
+            <p>Pagamento Mensal: R$ ${monthlyPayment.toFixed(2)}</p>
+            <p>Total a Pagar: R$ ${totalPayment.toFixed(2)}</p>
+            <p>Total de Juros: R$ ${totalInterest.toFixed(2)}</p>
+        `;
     });
 
-    const loanSimulator = document.getElementById('loan-simulator');
-    const simulationResult = document.getElementById('simulation-result');
-    const monthlyPaymentElement = document.getElementById('monthly-payment');
-    const totalPaymentElement = document.getElementById('total-payment');
-    const interestRateElement = document.getElementById('interest-rate');
+    // Atualizar outputs dos sliders
+    ['quick-loan-amount', 'quick-loan-term'].forEach(id => {
+        const input = document.getElementById(id);
+        const output = document.getElementById(`${id}-output`);
+        input.addEventListener('input', function() {
+            output.value = id === 'quick-loan-amount' ? `R$ ${this.value}` : `${this.value} meses`;
+        });
+    });
+}
 
-    if (loanSimulator) {
-        loanSimulator.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const loanAmount = parseFloat(document.getElementById('loan-amount').value);
-            const loanTerm = parseInt(document.getElementById('loan-term').value);
-            
-            // Taxa de juros mensal (exemplo: 1.5% ao mês)
-            const monthlyInterestRate = 0.015;
-            
-            // Cálculo da parcela mensal
-            const monthlyPayment = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTerm)) / (Math.pow(1 + monthlyInterestRate, loanTerm) - 1);
-            
-            // Cálculo do total a pagar
-            const totalPayment = monthlyPayment * loanTerm;
-            
-            // Cálculo da taxa de juros anual
-            const annualInterestRate = (Math.pow(1 + monthlyInterestRate, 12) - 1) * 100;
-            
-            // Exibição dos resultados
-            monthlyPaymentElement.textContent = `R$ ${monthlyPayment.toFixed(2)}`;
-            totalPaymentElement.textContent = `R$ ${totalPayment.toFixed(2)}`;
-            interestRateElement.textContent = `${annualInterestRate.toFixed(2)}% ao ano`;
-            
-            simulationResult.classList.remove('hidden');
+// Chatbot
+const chatForm = document.getElementById('chat-form');
+const userInput = document.getElementById('user-input');
+const chatMessages = document.getElementById('chat-messages');
+
+if (chatForm) {
+    chatForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const userMessage = userInput.value;
+        
+        chatMessages.innerHTML += `<p class="user-message">${userMessage}</p>`;
+        
+        const botResponse = await getBotResponse(userMessage);
+        chatMessages.innerHTML += `<p class="bot-message">${botResponse}</p>`;
+        
+        userInput.value = '';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
+}
+
+async function getBotResponse(message) {
+    // Simples sistema de resposta baseado em palavras-chave
+    const responses = {
+        "empréstimo": "Oferecemos diversos tipos de empréstimos. Qual é o seu interesse específico?",
+        "taxa": "Nossas taxas variam de acordo com o tipo de empréstimo e seu perfil. Posso te ajudar a fazer uma simulação?",
+        "documentos": "Para solicitar um empréstimo, geralmente precisamos de seu RG, CPF, comprovante de renda e comprovante de residência.",
+        "default": "Desculpe, não entendi sua pergunta. Pode reformular ou escolher um tópico específico como empréstimos, taxas ou documentos necessários?"
+    };
+
+    for (let key in responses) {
+        if (message.toLowerCase().includes(key)) {
+            return responses[key];
+        }
+    }
+    return responses["default"];
+}
+
+// Service Worker para PWA
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('Service Worker registrado com sucesso:', registration.scope);
+            })
+            .catch(error => {
+                console.log('Falha ao registrar o Service Worker:', error);
+            });
+    });
+}
+
+// Lazy loading para imagens
+document.addEventListener("DOMContentLoaded", function() {
+    let lazyImages = [].slice.call(document.querySelectorAll("img.lazy-image"));
+    
+    if ("IntersectionObserver" in window) {
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    let lazyImage = entry.target;
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove("lazy-image");
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
+
+        lazyImages.forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+        });
+    } else {
+        // Fallback para navegadores que não suportam IntersectionObserver
+        lazyImages.forEach(function(lazyImage) {
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.classList.remove("lazy-image");
         });
     }
 });
