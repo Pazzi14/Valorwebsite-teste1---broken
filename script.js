@@ -104,5 +104,39 @@ document.addEventListener("DOMContentLoaded", function() {
             lazyImage.src = lazyImage.dataset.src;
             lazyImage.classList.remove("lazy-image");
         });
+// Função para carregar conteúdo dinamicamente
+function loadContent(url, targetId) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(targetId).innerHTML = data;
+        })
+        .catch(error => console.error('Erro ao carregar conteúdo:', error));
+}
+
+// Exemplo de uso:
+// loadContent('/api/noticias', 'noticias-container');
+
+// Sistema de recompensas simplificado
+let userPoints = 0;
+
+function addPoints(amount) {
+    userPoints += amount;
+    updatePointsDisplay();
+}
+
+function updatePointsDisplay() {
+    const pointsDisplay = document.getElementById('user-points');
+    if (pointsDisplay) {
+        pointsDisplay.textContent = userPoints;
     }
+}
+
+// Exemplo de uso:
+// addPoints(100); // Adiciona 100 pontos ao usuário
+
+// Inicialização
+document.addEventListener('DOMContentLoaded', function() {
+    updatePointsDisplay();
+    // Outras inicializações podem ser adicionadas aqui
 });
