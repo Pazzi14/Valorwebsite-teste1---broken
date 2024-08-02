@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Valor Financiamentos</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav aria-label="Menu principal">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/pages/emprestimos.html">Empréstimos</a></li>
+                <li><a href="/pages/simulador.html">Simulador</a></li>
+                <li><a href="/pages/contato.html" aria-current="page">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Entre em Contato</h1>
+        
+        <section id="contact-info">
+            <h2>Informações de Contato</h2>
+            <p>Telefone: (11) 1234-5678</p>
+            <p>E-mail: contato@valorfinanciamentos.com.br</p>
+            <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
+        </section>
+
+        <section id="contact-form">
+            <h2>Envie uma Mensagem</h2>
+            <form id="message-form">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Telefone:</label>
+                <input type="tel" id="phone" name="phone">
+
+                <label for="subject">Assunto:</label>
+                <select id="subject" name="subject" required>
+                    <option value="">Selecione o assunto</option>
+                    <option value="duvida">Dúvida</option>
+                    <option value="sugestao">Sugestão</option>
+                    <option value="reclamacao">Reclamação</option>
+                    <option value="outros">Outros</option>
+                </select>
+
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="legal-links">
+            <a href="/pages/politica-privacidade.html">Política de Privacidade</a>
+            <a href="/pages/termos-de-uso.html">Termos de Uso</a>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+    <script>
+    document.getElementById('message-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Aqui você adicionaria o código para enviar o formulário para o servidor
+        alert('Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.');
+        this.reset();
+    });
+    </script>
+</body>
+</html>
