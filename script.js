@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+dOcument.addEventListener('DOMContentLoaded', function() {
     const loanSimulator = document.getElementById('loan-simulator');
     const simulationResult = document.getElementById('simulation-result');
 
