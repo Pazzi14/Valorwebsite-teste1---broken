@@ -3,75 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatos - Valor Financiamentos</title>
-    <link rel="stylesheet" href="/style.css">
+    <title>Contato - Valor Financiamentos</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
-        <nav aria-label="Menu principal">
+        <img src="../image/logo-valor-financiamentos.png" alt="Logo Valor Financiamentos" class="logo">
+        <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/pages/emprestimos.html">Empréstimos</a></li>
-                <li><a href="/pages/simulador.html">Simulador</a></li>
-                <li><a href="/pages/contato.html" aria-current="page">Contato</a></li>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="emprestimos.html">Empréstimos</a></li>
+                <li><a href="simulador.html">Simulador</a></li>
+                <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <h1>Entre em Contato</h1>
-        
-        <section id="contact-info">
-            <h2>Informações de Contato</h2>
-            <p>Telefone: (11) 1234-5678</p>
-            <p>E-mail: contato@valorfinanciamentos.com.br</p>
-            <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
-        </section>
+        <form id="contact-form">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
 
-        <section id="contact-form">
-            <h2>Envie uma Mensagem</h2>
-            <form id="message-form">
-                <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" required>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
 
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" required></textarea>
 
-                <label for="phone">Telefone:</label>
-                <input type="tel" id="phone" name="phone">
-
-                <label for="subject">Assunto:</label>
-                <select id="subject" name="subject" required>
-                    <option value="">Selecione o assunto</option>
-                    <option value="duvida">Dúvida</option>
-                    <option value="sugestao">Sugestão</option>
-                    <option value="reclamacao">Reclamação</option>
-                    <option value="outros">Outros</option>
-                </select>
-
-                <label for="message">Mensagem:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit">Enviar Mensagem</button>
-            </form>
-        </section>
+            <button type="submit">Enviar</button>
+        </form>
     </main>
 
     <footer>
-        <div class="legal-links">
-            <a href="/pages/politica-privacidade.html">Política de Privacidade</a>
-            <a href="/pages/termos-de-uso.html">Termos de Uso</a>
-        </div>
+        <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
+        <nav>
+            <a href="politica-privacidade.html">Política de Privacidade</a> |
+            <a href="termos-de-uso.html">Termos de Uso</a>
+        </nav>
     </footer>
 
-    <script src="/script.js"></script>
-    <script>
-    document.getElementById('message-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Aqui você adicionaria o código para enviar o formulário para o servidor
-        alert('Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.');
-        this.reset();
-    });
-    </script>
+    <script src="../script.js"></script>
 </body>
 </html>
