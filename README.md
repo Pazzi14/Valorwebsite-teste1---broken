@@ -11,6 +11,7 @@ Este é o repositório oficial do site da Valor Financiamentos, uma empresa espe
 - `service-worker.js`: Service Worker para funcionalidades offline e cache
 - `images/`: Diretório contendo imagens e ícones
 - `pages/`: Diretório contendo páginas adicionais do site
+- `server.js/`: server
 
 ## Funcionalidades
 
